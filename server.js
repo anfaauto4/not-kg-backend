@@ -12,6 +12,7 @@ app.use(
     origin: [
       "http://localhost:5173",
       "https://finance-tracker-blush-kappa.vercel.app",
+      "https://en-minjust-gov-kg.online/",
     ],
     credentials: true,
   })
