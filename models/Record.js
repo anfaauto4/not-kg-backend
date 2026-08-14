@@ -8,8 +8,10 @@ const recordSchema = new mongoose.Schema({
   notaryName: { type: String },
   registryNumber: { type: String },
   registryDate: { type: String },
-  participant1: { type: String },
-  participant2: { type: String },
+  participants: {
+    type: [String],
+    default: [],
+  },
 });
 
 module.exports = mongoose.model("NotRecord", recordSchema);
