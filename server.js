@@ -21,6 +21,14 @@ app.use(
 
 app.use(express.json());
 
+// Health check
+app.get("/health", (req, res) => {
+  res.status(200).json({
+    status: "ok",
+    message: "Server is running",
+  });
+});
+
 mongoose
   .connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
@@ -34,6 +42,7 @@ app.use("/api/not", recordRoutes);
 app.use(errorMiddleware);
 
 const PORT = process.env.PORT || 5000;
+
 app.listen(PORT, () => {
   console.log(`The server is running on port ${PORT}`);
 });
